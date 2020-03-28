@@ -1,4 +1,5 @@
 import React from 'react';
+import SessionControl from './components/SessionControl';
 import './App.css';
 
 const App = () => (
@@ -10,6 +11,8 @@ const App = () => (
           🍅
         </span>
       </h1>
+      <SessionControl initialVal={25} type="focus"/>
+      <SessionControl initialVal={5} type="break"/>
     </main>
   </div>
 );
