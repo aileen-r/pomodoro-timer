@@ -1,3 +1,8 @@
+# Pomodoro Timer
+
+A simple, web pomodoro timer. Based on the [FreeCodeCamp](https://www.freecodecamp.org) [Front End Libraries Project](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-pomodoro-clock).
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
