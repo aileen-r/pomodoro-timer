@@ -1,7 +1,7 @@
 import React from 'react';
 import './SessionControl.css';
 
-const IncrDecrBtn = ({ action, controlLabel }) => {
+const IncrDecrBtn = ({ action, controlLabel, type }) => {
   let icon;
   switch (action) {
     case 'increment':
@@ -13,19 +13,22 @@ const IncrDecrBtn = ({ action, controlLabel }) => {
     default:
       break;
   }
-  return (action && <button atia-label={action + ' ' + controlLabel}>{icon}</button>) || null;
+  const btnId = (action && type) ? type + '-' + action : '';
+  return (action && <button id={btnId} aria-label={action + ' ' + controlLabel}>{icon}</button>) || null;
 };
 
 const SessionControl = ({ initialVal, type }) => {
   const controlLabel = type && type[0].toUpperCase() + type.slice(1) + ' Length';
   const typeId = type && type === 'focus' ? 'session' : type;
   const controlLabelId = typeId && typeId + '-label';
+  const valueId = typeId && typeId + '-length';
+
   return (
     <div className="SessionControl">
       <p id={controlLabelId}>{controlLabel}</p>
-      <IncrDecrBtn action="decrement" controlLabel={controlLabel} />
-      <span>{initialVal}</span>
-      <IncrDecrBtn action="increment" controlLabel={controlLabel} />
+      <IncrDecrBtn action="decrement" controlLabel={controlLabel} type={typeId}/>
+      <span id={valueId}>{initialVal}</span>
+      <IncrDecrBtn action="increment" controlLabel={controlLabel} type={typeId}/>
     </div>
   );
 };

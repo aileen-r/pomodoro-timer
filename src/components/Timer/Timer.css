@@ -1,0 +1,44 @@
+.Timer {
+  align-items: center;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  height: 30vmin;
+  justify-content: center;
+  min-height: 250px;
+  min-width: 250px;
+  position: relative;
+  width: 30vmin;
+}
+
+.Timer-inner {
+  align-items: center;
+  background-color: hsl(359, 98%, 72%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  justify-content: center;
+  width: 60%;
+}
+
+.Timer-inner-loader {
+  fill: #fd353a;
+}
+
+.Timer-label {
+  font-size: 1.5em;
+}
+
+.Timer-countdown {
+  font-size: 3em;
+}
+
+.Timer-tomato {
+  background-color: #fd353a;
+  border-radius: 50%;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
