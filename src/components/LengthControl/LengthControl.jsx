@@ -19,7 +19,7 @@ const IncrDecrBtn = ({ action, controlLabel, type }) => {
 
 const LengthControl = ({ initialVal, type }) => {
   const controlLabel = type && type[0].toUpperCase() + type.slice(1) + ' Length';
-  const typeId = type && type === 'focus' ? 'Length' : type;
+  const typeId = type && type === 'focus' ? 'session' : type;
   const controlLabelId = typeId && typeId + '-label';
   const valueId = typeId && typeId + '-length';
 

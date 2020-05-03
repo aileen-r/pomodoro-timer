@@ -11,11 +11,21 @@
   justify-content: center;
 }
 
-.session-controls {
+.length-controls {
   display: flex;
   margin-bottom: 20px;
 }
 
-.session-controls .SessionControl:not(:first-child) {
+.length-controls .LengthControl:not(:first-child) {
   padding-left: 40px;
+}
+
+.session-controls {
+  align-items: center;
+  display: flex;
+  margin-top: 20px;
+}
+
+.session-controls .SessionControl:not(:first-child) {
+  padding-left: 7px;
 }
