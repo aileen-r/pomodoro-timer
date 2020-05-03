@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import accurateInterval from 'accurate-interval';
 import Timer from './components/Timer';
 import LengthControl from './components/LengthControl';
 import SessionControl from './components/SessionControl';
