@@ -1,5 +1,5 @@
 import React from 'react';
-import './SessionControl.css';
+import './LengthControl.css';
 
 const IncrDecrBtn = ({ action, controlLabel, type }) => {
   let icon;
@@ -17,14 +17,14 @@ const IncrDecrBtn = ({ action, controlLabel, type }) => {
   return (action && <button id={btnId} aria-label={action + ' ' + controlLabel}>{icon}</button>) || null;
 };
 
-const SessionControl = ({ initialVal, type }) => {
+const LengthControl = ({ initialVal, type }) => {
   const controlLabel = type && type[0].toUpperCase() + type.slice(1) + ' Length';
-  const typeId = type && type === 'focus' ? 'session' : type;
+  const typeId = type && type === 'focus' ? 'Length' : type;
   const controlLabelId = typeId && typeId + '-label';
   const valueId = typeId && typeId + '-length';
 
   return (
-    <div className="SessionControl">
+    <div className="LengthControl">
       <p id={controlLabelId}>{controlLabel}</p>
       <IncrDecrBtn action="decrement" controlLabel={controlLabel} type={typeId}/>
       <span id={valueId}>{initialVal}</span>
@@ -33,4 +33,4 @@ const SessionControl = ({ initialVal, type }) => {
   );
 };
 
-export default SessionControl;
+export default LengthControl;

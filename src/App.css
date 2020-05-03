@@ -10,3 +10,12 @@
   align-items: center;
   justify-content: center;
 }
+
+.session-controls {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.session-controls .SessionControl:not(:first-child) {
+  padding-left: 40px;
+}
