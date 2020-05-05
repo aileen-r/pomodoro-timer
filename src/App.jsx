@@ -10,6 +10,7 @@ const App = () => {
   const [timer, setTimer] = useState(focusLength * 60);
   // const [timerInterval, setTimerInterval] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
+  const [mode, setMode] = useState('focus');
 
   useEffect(() => {
     if (timerRunning) {
@@ -40,15 +41,25 @@ const App = () => {
     setTimer(timer - 1);
   }
 
+  const onLengthChange = (length, type) => {
+    if (timerRunning) return;
+    if (type === mode) setTimer(length * 60);
+    if (type === 'focus') {
+      setFocusLength(length);
+    } else {
+      setBreakLength(length);
+    }
+  }
+
   return (
     <div className="App">
       <main className="App-container">
         <h1>Pomodoro Timer</h1>
         <div className="length-controls">
-          <LengthControl length={focusLength} setLength={(x) => setFocusLength(x)} type="focus" />
-          <LengthControl length={breakLength} setLength={(x) => setBreakLength(x)} type="break" />
+          <LengthControl length={focusLength} onLengthChange={(x) => onLengthChange(x, 'focus')} type="focus" />
+          <LengthControl length={breakLength} onLengthChange={(x) => onLengthChange(x, 'break')} type="break" />
         </div>
-        <Timer time={timer} />
+        <Timer mode={mode} time={timer} />
         <div className="session-controls">
           <SessionControl id="reset" type="reset" />
           <SessionControl id="start_stop" main onClick={startStopTimer} type="start-stop" />

@@ -24,18 +24,18 @@ const IncrDecrBtn = ({ action, controlLabel, onClick, type }) => {
   );
 };
 
-const LengthControl = ({ length, setLength, type }) => {
+const LengthControl = ({ length, onLengthChange, type }) => {
   const controlLabel = type && type[0].toUpperCase() + type.slice(1) + ' Length';
   const typeId = type && type === 'focus' ? 'session' : type;
   const controlLabelId = typeId && typeId + '-label';
   const valueId = typeId && typeId + '-length';
 
   const increment = () => {
-    setLength(length + 1);
+    onLengthChange(length + 1);
   };
 
   const decrement = () => {
-    setLength(length -1);
+    onLengthChange(length -1);
   };
 
   return (

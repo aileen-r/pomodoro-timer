@@ -1,17 +1,27 @@
 import React from 'react';
 import './Timer.css';
 
-const Timer = ({ time }) => {
+const secondsToClockTime = time => {
+  const measuredTime = new Date(null);
+  measuredTime.setSeconds(time);
+  const clockTime = measuredTime.toISOString().substr(14, 5);
+  return clockTime;
+}
+
+const Timer = ({ mode, time }) => {
   // https://codepen.io/agrimsrud/pen/EmCoa
+
+  const clockTime = secondsToClockTime(time);
+
   return (
     <div className="Timer">
       <div className="Timer-tomato"></div>
       <div className="Timer-inner">
         <div id="time-left" className="Timer-countdown">
-          {time}
+          {clockTime}
         </div>
         <div id="timer-label" className="Timer-label">
-          focus
+          {mode}
         </div>
       </div>
     </div>
