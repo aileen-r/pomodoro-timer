@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Timer from './components/Timer';
 import LengthControl from './components/LengthControl';
 import SessionControl from './components/SessionControl';
@@ -11,13 +11,36 @@ const App = () => {
   const [timerRunning, setTimerRunning] = useState(false);
   const [mode, setMode] = useState('focus');
 
+  const timeRemaining = useRef(timer);
+
+  const onTick = useCallback(() => {
+
+    if (timeRemaining.current === 0) {
+      // Trigger audio
+      const newMode = mode === 'focus' ? 'break' : 'focus';
+      setMode(newMode);
+      if (newMode === 'focus') updateTimer(focusLength * 60);
+      else updateTimer(breakLength * 60);
+    } else {
+      updateTimer(timeRemaining.current -1);
+    }
+  }, [breakLength, focusLength, mode]);
+
   useEffect(() => {
     if (timerRunning) {
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         onTick();
       }, 1000);
+      return () => {
+        clearTimeout(timeout);
+      };
     }
-  });
+  }, [onTick, timer, timerRunning]);
+
+  const updateTimer = time => {
+    setTimer(time);
+    timeRemaining.current = time;
+  }
 
   const startStopTimer = () => {
     if (timerRunning) {
@@ -33,18 +56,6 @@ const App = () => {
 
   const stopTimer = () => {
     setTimerRunning(false);
-  };
-
-  const onTick = () => {
-    if (timer === 0) {
-      // Trigger audio
-      const newMode = mode === 'focus' ? 'break' : 'focus';
-      setMode(newMode);
-      if (newMode === 'focus') setTimer(focusLength * 60);
-      else setTimer(breakLength * 60);
-    } else {
-      setTimer(timer - 1);
-    }
   };
 
   const onLengthChange = (length, type) => {
