@@ -12,17 +12,17 @@ const App = () => {
   const [mode, setMode] = useState('focus');
 
   const timeRemaining = useRef(timer);
+  const audio = useRef();
 
   const onTick = useCallback(() => {
-
     if (timeRemaining.current === 0) {
-      // Trigger audio
+      audio.current.play();
       const newMode = mode === 'focus' ? 'break' : 'focus';
       setMode(newMode);
       if (newMode === 'focus') updateTimer(focusLength * 60);
       else updateTimer(breakLength * 60);
     } else {
-      updateTimer(timeRemaining.current -1);
+      updateTimer(timeRemaining.current - 1);
     }
   }, [breakLength, focusLength, mode]);
 
@@ -37,10 +37,10 @@ const App = () => {
     }
   }, [onTick, timer, timerRunning]);
 
-  const updateTimer = time => {
+  const updateTimer = (time) => {
     setTimer(time);
     timeRemaining.current = time;
-  }
+  };
 
   const startStopTimer = () => {
     if (timerRunning) {
@@ -91,6 +91,11 @@ const App = () => {
           <SessionControl type="skip" />
         </div>
       </main>
+      <audio
+        loop={false}
+        ref={audio}
+        src={process.env.PUBLIC_URL + '/assets/Cool-alarm-tone-notification-sound.mp3'}
+      ></audio>
     </div>
   );
 };
