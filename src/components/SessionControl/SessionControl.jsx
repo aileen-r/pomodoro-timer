@@ -1,12 +1,12 @@
 import React from 'react';
 import './SessionControl.css';
 
-const SessionControl = ({ id, main, onClick, type }) => {
+const SessionControl = ({ children, id, main, onClick }) => {
   const mainClass = main ? '--main' : '';
   return (
     <div className="SessionControl">
       <button className={`SessionControl-btn ${mainClass}`} id={id} onClick={onClick}>
-        {type}
+        {children}
       </button>
     </div>
   );

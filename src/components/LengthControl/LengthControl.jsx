@@ -11,7 +11,7 @@ const IncrDecrBtn = ({ action, controlLabel, onClick, type }) => {
       icon = <FontAwesomeIcon icon={faPlus} />;
       break;
     case 'Decrement':
-      icon = icon = <FontAwesomeIcon icon={faMinus} />;
+      icon = <FontAwesomeIcon icon={faMinus} />;
       break;
     default:
       break;

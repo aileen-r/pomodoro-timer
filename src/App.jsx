@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+
 import Timer from './components/Timer';
 import LengthControl from './components/LengthControl';
 import SessionControl from './components/SessionControl';
@@ -101,9 +104,14 @@ const App = () => {
         </div>
         <Timer mode={mode} time={timer} />
         <div className="session-controls">
-          <SessionControl id="reset" onClick={resetTimer} type="reset" />
-          <SessionControl id="start_stop" main onClick={startStopTimer} type="start-stop" />
-          <SessionControl onClick={switchModes} type="skip"/>
+          <SessionControl id="reset" onClick={resetTimer}>
+            Reset
+          </SessionControl>
+          <SessionControl id="start_stop" main onClick={startStopTimer}>
+            <FontAwesomeIcon icon={faPlay} />
+            <FontAwesomeIcon icon={faPause} />
+          </SessionControl>
+          <SessionControl onClick={switchModes}>Skip</SessionControl>
         </div>
       </main>
       <audio
