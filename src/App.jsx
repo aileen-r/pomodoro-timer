@@ -4,10 +4,13 @@ import LengthControl from './components/LengthControl';
 import SessionControl from './components/SessionControl';
 import './App.css';
 
+const defaultBreakLength = 5;
+const defaultFocusLength = 25;
+
 const App = () => {
-  const [breakLength, setBreakLength] = useState(0.1);
-  const [focusLength, setFocusLength] = useState(0.1);
-  const [timer, setTimer] = useState(focusLength * 60);
+  const [breakLength, setBreakLength] = useState(defaultBreakLength);
+  const [focusLength, setFocusLength] = useState(defaultFocusLength);
+  const [timer, setTimer] = useState(defaultFocusLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
   const [mode, setMode] = useState('focus');
 
@@ -60,12 +63,20 @@ const App = () => {
 
   const onLengthChange = (length, type) => {
     if (timerRunning) return;
-    if (type === mode) setTimer(length * 60);
+    if (type === mode) updateTimer(length * 60);
     if (type === 'focus') {
       setFocusLength(length);
     } else {
       setBreakLength(length);
     }
+  };
+
+  const resetTimer = () => {
+    if (timerRunning) stopTimer();
+    setBreakLength(defaultBreakLength);
+    setFocusLength(defaultFocusLength);
+    updateTimer(defaultFocusLength * 60);
+    setMode('focus');
   };
 
   return (
@@ -86,7 +97,7 @@ const App = () => {
         </div>
         <Timer mode={mode} time={timer} />
         <div className="session-controls">
-          <SessionControl id="reset" type="reset" />
+          <SessionControl id="reset" onClick={resetTimer} type="reset" />
           <SessionControl id="start_stop" main onClick={startStopTimer} type="start-stop" />
           <SessionControl type="skip" />
         </div>
