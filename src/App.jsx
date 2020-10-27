@@ -17,29 +17,6 @@ const App = () => {
   const timeRemaining = useRef(timer);
   const audio = useRef();
 
-  const onTick = useCallback(() => {
-    if (timeRemaining.current === 0) {
-      audio.current.play();
-      const newMode = mode === 'focus' ? 'break' : 'focus';
-      setMode(newMode);
-      if (newMode === 'focus') updateTimer(focusLength * 60);
-      else updateTimer(breakLength * 60);
-    } else {
-      updateTimer(timeRemaining.current - 1);
-    }
-  }, [breakLength, focusLength, mode]);
-
-  useEffect(() => {
-    if (timerRunning) {
-      const timeout = setTimeout(() => {
-        onTick();
-      }, 1000);
-      return () => {
-        clearTimeout(timeout);
-      };
-    }
-  }, [onTick, timer, timerRunning]);
-
   const updateTimer = (time) => {
     setTimer(time);
     timeRemaining.current = time;
@@ -79,6 +56,33 @@ const App = () => {
     setMode('focus');
   };
 
+  const switchModes = useCallback(() => {
+    const newMode = mode === 'focus' ? 'break' : 'focus';
+    setMode(newMode);
+    if (newMode === 'focus') updateTimer(focusLength * 60);
+    else updateTimer(breakLength * 60);
+  }, [breakLength, focusLength, mode]);
+
+  const onTick = useCallback(() => {
+    if (timeRemaining.current === 0) {
+      audio.current.play();
+      switchModes();
+    } else {
+      updateTimer(timeRemaining.current - 1);
+    }
+  }, [switchModes]);
+
+  useEffect(() => {
+    if (timerRunning) {
+      const timeout = setTimeout(() => {
+        onTick();
+      }, 1000);
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
+  }, [onTick, timer, timerRunning]);
+
   return (
     <div className="App">
       <main className="App-container">
@@ -99,7 +103,7 @@ const App = () => {
         <div className="session-controls">
           <SessionControl id="reset" onClick={resetTimer} type="reset" />
           <SessionControl id="start_stop" main onClick={startStopTimer} type="start-stop" />
-          <SessionControl type="skip" />
+          <SessionControl onClick={switchModes} type="skip"/>
         </div>
       </main>
       <audio
