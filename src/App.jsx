@@ -115,6 +115,7 @@ const App = () => {
         </div>
       </main>
       <audio
+        id="beep"
         loop={false}
         ref={audio}
         src={process.env.PUBLIC_URL + '/assets/Cool-alarm-tone-notification-sound.mp3'}
