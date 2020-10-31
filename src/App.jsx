@@ -54,6 +54,8 @@ const App = () => {
 
   const resetTimer = () => {
     if (timerRunning) stopTimer();
+    audio.current.pause();
+    audio.current.currentTime = 0;
     setBreakLength(defaultBreakLength);
     setFocusLength(defaultFocusLength);
     updateTimer(defaultFocusLength * 60);
