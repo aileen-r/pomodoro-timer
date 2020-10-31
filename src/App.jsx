@@ -43,6 +43,7 @@ const App = () => {
 
   const onLengthChange = (length, type) => {
     if (timerRunning) return;
+    if (length <= 0 || length > 60) return;
     if (type === mode) updateTimer(length * 60);
     if (type === 'focus') {
       setFocusLength(length);
