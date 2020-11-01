@@ -71,9 +71,12 @@ const App = () => {
 
   const onTick = useCallback(() => {
     if (timeRemaining.current === 0) {
-      audio.current.play();
       switchModes();
     } else {
+      if (timeRemaining.current === 1) {
+        // play audio 1 second early as there is a delay
+        audio.current.play();
+      }
       updateTimer(timeRemaining.current - 1);
     }
   }, [switchModes]);
