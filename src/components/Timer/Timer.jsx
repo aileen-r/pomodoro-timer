@@ -1,12 +1,6 @@
 import React from 'react';
+import { secondsToClockTime } from './timeFormatting';
 import './Timer.css';
-
-const secondsToClockTime = time => {
-  const measuredTime = new Date(null);
-  measuredTime.setSeconds(time);
-  const clockTime = measuredTime.toISOString().substr(14, 5);
-  return clockTime;
-}
 
 const Timer = ({ mode, time }) => {
   // https://codepen.io/agrimsrud/pen/EmCoa
