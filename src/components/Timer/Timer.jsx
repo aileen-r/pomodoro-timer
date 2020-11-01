@@ -1,5 +1,6 @@
 import React from 'react';
 import { secondsToClockTime } from './timeFormatting';
+import { ReactComponent as Tomato } from './tomato.svg';
 import './Timer.css';
 
 const Timer = ({ mode, time }) => {
@@ -9,7 +10,7 @@ const Timer = ({ mode, time }) => {
 
   return (
     <div className="Timer">
-      <div className="Timer-tomato"></div>
+      <Tomato className="Timer-tomato" />
       <div className="Timer-inner">
         <div id="time-left" className="Timer-countdown">
           {clockTime}

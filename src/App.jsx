@@ -5,6 +5,7 @@ import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import Timer from './components/Timer';
 import LengthControl from './components/LengthControl';
 import SessionControl from './components/SessionControl';
+import Footer from './components/Footer';
 import './App.css';
 
 const defaultBreakLength = 5;
@@ -119,6 +120,7 @@ const App = () => {
           </SessionControl>
           <SessionControl onClick={switchModes}>Skip</SessionControl>
         </div>
+        <Footer />
       </main>
       <audio
         id="beep"
