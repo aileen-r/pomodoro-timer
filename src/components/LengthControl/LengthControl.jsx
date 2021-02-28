@@ -50,7 +50,7 @@ const LengthControl = ({ length, onLengthChange, type }) => {
         onClick={decrement}
         type={typeId}
       />
-      <span id={valueId}>{length}</span>
+      <span id={valueId} className="LengthControl-length">{length}</span>
       <IncrDecrBtn
         action="Increment"
         controlLabel={controlLabel}

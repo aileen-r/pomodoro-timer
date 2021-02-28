@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+.SessionControl {
+  .SessionControl-btn {
+    background-color: $dark-red;
+    border: none;
+    border-radius: 50%;
+    color: $white;
+    font-size: 1em;
+    height: 35px;
+    width: 35px;
+
+    &.--main {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}

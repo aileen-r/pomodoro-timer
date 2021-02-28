@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPause, faPlay, faRedo, faStepForward } from '@fortawesome/free-solid-svg-icons';
 
 import Timer from '../components/Timer';
 import LengthControl from '../components/LengthControl';
@@ -112,14 +112,24 @@ const App = () => {
         </div>
         <Timer mode={mode} time={timer} />
         <div className="session-controls">
-          <SessionControl id="reset" onClick={resetTimer}>
-            Reset
+          <SessionControl ariaLabel="Reset timer" id="reset" onClick={resetTimer}>
+            <FontAwesomeIcon icon={faRedo} />
           </SessionControl>
-          <SessionControl id="start_stop" main onClick={startStopTimer}>
+          <SessionControl
+            ariaLabel={`${timerRunning ? 'Stop' : 'Start'} timer`}
+            id="start_stop"
+            main
+            onClick={startStopTimer}
+          >
             <FontAwesomeIcon icon={faPlay} />
             <FontAwesomeIcon icon={faPause} />
           </SessionControl>
-          <SessionControl onClick={switchModes}>Skip</SessionControl>
+          <SessionControl
+            ariaLabel={`Skip to next ${mode === 'focus' ? 'break' : 'focus'} session`}
+            onClick={switchModes}
+          >
+            <FontAwesomeIcon icon={faStepForward} />
+          </SessionControl>
         </div>
         <Footer />
       </main>

@@ -32,6 +32,6 @@
   margin-top: 20px;
 }
 
-.session-controls .SessionControl:not(:first-child) {
-  padding-left: 7px;
+.session-controls .SessionControl{
+  margin: 0 7px;
 }
