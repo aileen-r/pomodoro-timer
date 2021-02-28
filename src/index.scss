@@ -25,7 +25,10 @@ a {
   font-weight: 300;
   padding: 1px 0;
   text-decoration: none;
-  transition: all 0.2s;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: all 0.2s !important;
+  }
 
   &:hover {
     border-bottom-color: transparent;
