@@ -1,3 +1,5 @@
+@import 'styles/variables.scss';
+
 @font-face {
   font-family: 'Karla';
   src: url('./assets/Karla-VariableFont_wght.ttf') format('truetype');
@@ -6,7 +8,7 @@
 
 body {
   background-color: #c4f7f8;
-  color: rgb(49, 9, 10);
+  color: $black;
   font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,4 +17,17 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a {
+  border-bottom: 2px solid $dark-red;
+  color: $black;
+  font-weight: 300;
+  padding: 1px 0;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    border-bottom-color: transparent;
+  }
 }

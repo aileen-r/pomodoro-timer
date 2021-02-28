@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Footer.css';
+import './Footer.scss';
 
 const Footer = () => (
   <footer className="footer">
@@ -33,6 +33,7 @@ const Footer = () => (
       <a href="http://www.orangefreesounds.com/" target="_blank" rel="noopener noreferrer">
         www.orangefreesounds.com/
       </a>
+      .
     </span>
   </footer>
 );

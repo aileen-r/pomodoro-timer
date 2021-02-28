@@ -38,12 +38,12 @@ const LengthControl = ({ length, onLengthChange, type }) => {
   };
 
   const decrement = () => {
-    onLengthChange(length -1);
+    onLengthChange(length - 1);
   };
 
   return (
     <div className="LengthControl">
-      <p id={controlLabelId}>{controlLabel}</p>
+      <p id={controlLabelId} className="LengthControl-label">{controlLabel}</p>
       <IncrDecrBtn
         action="Decrement"
         controlLabel={controlLabel}

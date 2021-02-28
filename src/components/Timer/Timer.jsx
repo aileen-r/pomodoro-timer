@@ -1,7 +1,7 @@
 import React from 'react';
 import { secondsToClockTime } from './timeFormatting';
 import { ReactComponent as Tomato } from './tomato.svg';
-import './Timer.css';
+import './Timer.scss';
 
 const Timer = ({ mode, time }) => {
   // https://codepen.io/agrimsrud/pen/EmCoa
