@@ -11,6 +11,12 @@
   justify-content: center;
 }
 
+.App-header {
+  font-weight: 800;
+  font-size: 3em;
+  letter-spacing: -0.025em;;
+}
+
 .length-controls {
   display: flex;
   margin-bottom: 20px;

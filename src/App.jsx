@@ -96,7 +96,7 @@ const App = () => {
   return (
     <div className="App">
       <main className="App-container">
-        <h1>Pomodoro Timer</h1>
+        <h1 className="App-header">Pomodoro Timer</h1>
         <div className="length-controls">
           <LengthControl
             length={focusLength}
