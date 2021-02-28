@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-import './LengthControl.css';
+import './LengthControl.scss';
 
 const IncrDecrBtn = ({ action, controlLabel, onClick, type }) => {
   let icon;
@@ -19,7 +19,7 @@ const IncrDecrBtn = ({ action, controlLabel, onClick, type }) => {
   const btnId = (action && type ? type + '-' + action : '').toLowerCase();
   return (
     (action && (
-      <button id={btnId} aria-label={action + ' ' + controlLabel} onClick={onClick}>
+      <button id={btnId} className="LengthControl-button" aria-label={action + ' ' + controlLabel} onClick={onClick}>
         {icon}
       </button>
     )) ||

@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 
-import Timer from './components/Timer';
-import LengthControl from './components/LengthControl';
-import SessionControl from './components/SessionControl';
-import Footer from './components/Footer';
-import './App.css';
+import Timer from '../components/Timer';
+import LengthControl from '../components/LengthControl';
+import SessionControl from '../components/SessionControl';
+import Footer from '../components/Footer';
+
+import './App.scss';
 
 const defaultBreakLength = 5;
 const defaultFocusLength = 25;

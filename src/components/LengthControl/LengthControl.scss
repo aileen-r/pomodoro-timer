@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+.LengthControl {
+  .LengthControl-button {
+    // TODO - icon moves to right when clicking button
+    background: $dark-green;
+    border: none;
+    border-radius: 50%;
+    font-size: 1em;
+    color: $white;
+    height: 30px;
+    width: 30px;
+  }
+}
