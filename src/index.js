@@ -14,8 +14,7 @@ ReactDOM.render(
 if (window.location.search === '?fcc=true') {
   const scriptEl = document.createElement('script');
   scriptEl.async = true;
-  scriptEl.src =
-    'https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js';
+  scriptEl.src = 'https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js';
   document.getElementsByTagName('body')[0].appendChild(scriptEl);
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import './LengthControl.scss';
 
@@ -19,7 +19,12 @@ const IncrDecrBtn = ({ action, controlLabel, onClick, type }) => {
   const btnId = (action && type ? type + '-' + action : '').toLowerCase();
   return (
     (action && (
-      <button id={btnId} className="LengthControl-button" aria-label={action + ' ' + controlLabel} onClick={onClick}>
+      <button
+        id={btnId}
+        className="LengthControl-button"
+        aria-label={action + ' ' + controlLabel}
+        onClick={onClick}
+      >
         {icon}
       </button>
     )) ||
@@ -43,14 +48,18 @@ const LengthControl = ({ length, onLengthChange, type }) => {
 
   return (
     <div className="LengthControl">
-      <p id={controlLabelId} className="LengthControl-label">{controlLabel}</p>
+      <p id={controlLabelId} className="LengthControl-label">
+        {controlLabel}
+      </p>
       <IncrDecrBtn
         action="Decrement"
         controlLabel={controlLabel}
         onClick={decrement}
         type={typeId}
       />
-      <span id={valueId} className="LengthControl-length">{length}</span>
+      <span id={valueId} className="LengthControl-length">
+        {length}
+      </span>
       <IncrDecrBtn
         action="Increment"
         controlLabel={controlLabel}
