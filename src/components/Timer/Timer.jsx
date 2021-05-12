@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { secondsToClockTime } from './timeFormatting';
 import { ReactComponent as Tomato } from './tomato.svg';
+
 import './Timer.scss';
 
 const Timer = ({ mode, time }) => {
@@ -21,6 +23,11 @@ const Timer = ({ mode, time }) => {
       </div>
     </div>
   );
+};
+
+Timer.propTypes = {
+  mode: PropTypes.string,
+  time: PropTypes.number,
 };
 
 export default Timer;

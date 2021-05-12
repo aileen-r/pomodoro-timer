@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -68,6 +69,12 @@ const LengthControl = ({ length, onLengthChange, type }) => {
       />
     </div>
   );
+};
+
+LengthControl.propTypes = {
+  length: PropTypes.number,
+  onLengthChange: PropTypes.func,
+  type: PropTypes.string,
 };
 
 export default LengthControl;
